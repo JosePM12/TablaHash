@@ -39,6 +39,7 @@ def table(L):
 def Menu(L):
     valor = 0
     while(valor != 4):
+        print("\nMenú\n")
         print("1. Consultar por el DNI")
         print("2. Cambiar registro con DNI")
         print("3. Eliminar DNI")
@@ -91,6 +92,7 @@ def Menu(L):
                 L.remove(L[indice])
                 Orden(L)
                 table(L)
+        print("\n")
         # Si se trabajara con n elementos
 
 
@@ -112,7 +114,7 @@ Orden(L)
 # Mostrarlo
 table(L)
 # MENU
-print("\n\n")
+print("\n")
 Menu(L)
 
 # Definidas por el usuario
