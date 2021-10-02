@@ -118,7 +118,6 @@ Menu(L)
 # Definidas por el usuario
 print("\n\n Lista Definida por el Usuario\n")
 lista_def = Lista_DefinidaporUser()
-print(lista_def)
 Orden(lista_def)
 table(lista_def)
 Menu(lista_def)
