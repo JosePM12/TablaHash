@@ -54,23 +54,29 @@ def Menu(L):
         clave = clave % len(L)
         maximo = clave
         if valor == 1:
-            while consulta != L[clave % len(L)][0]:
-                clave += 1
-                if(clave == maximo + len(L)):
-                    clave = -1
-                    break
-            indice = clave
+            if consulta == L[clave][0]:
+                indice = clave
+            else:
+                while consulta != L[clave % len(L)][0]:
+                    clave += 1
+                    if(clave == maximo + len(L)):
+                        clave = -1
+                        break
+                indice = clave
             if indice == -1:
                 print("No se encontro ese DNI, lo sentimos")
             else:
                 print("La persona con ese DNI es: ", L[indice][1])
-        if valor == 2:
-            while consulta != L[clave % len(L)][0]:
-                clave += 1
-                if(clave == maximo + len(L)):
-                    clave = -1
-                    break
-            indice = clave
+        elif valor == 2:
+            if consulta == L[clave][0]:
+                indice = clave
+            else:
+                while consulta != L[clave % len(L)][0]:
+                    clave += 1
+                    if(clave == maximo + len(L)):
+                        clave = -1
+                        break
+                indice = clave
             if indice == -1:
                 print("No se encontro ese DNI, lo sentimos")
             else:
@@ -79,13 +85,16 @@ def Menu(L):
                 L[indice][0], L[indice][1] = Nuevo_DNI, Nuevo_Nombre
                 Orden(L)
                 table(L)
-        if valor == 3:
-            while consulta != L[clave % len(L)][0]:
-                clave += 1
-                if(clave == maximo + len(L)):
-                    clave = -1
-                    break
-            indice = clave
+        elif valor == 3:
+            if consulta == L[clave][0]:
+                indice = clave
+            else:
+                while consulta != L[clave % len(L)][0]:
+                    clave += 1
+                    if(clave == maximo + len(L)):
+                        clave = -1
+                        break
+                indice = clave
             if indice == -1:
                 print("No se encontro ese DNI, lo sentimos")
             else:
