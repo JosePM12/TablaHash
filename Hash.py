@@ -10,8 +10,6 @@ def Orden(L):
         L[i][1] = ""
 
     # tupla = ('1213141','asf','321321312','fddsf',...)
-
-    lista = []
     for i in range(0, len(tupla), 2):
         dni = list(tupla[i])
         clave = 0
@@ -19,7 +17,6 @@ def Orden(L):
             clave += int(j)
         indice = clave % len(L)
         # Se empieza con Juan entonces el indice sera = 6
-        lista += [tupla[i]]
         while True:
             indice = indice % len(L)
             if L[indice][0] == "":
