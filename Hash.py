@@ -120,7 +120,7 @@ Orden(L)
 # Mostrarlo
 table(L)
 # MENU
-print("\n")
+print("\n\n")
 Menu(L)
 
 # Definidas por el usuario
