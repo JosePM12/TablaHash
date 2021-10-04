@@ -18,10 +18,41 @@ int clave(string cadena)
 
 void Hash(string L[][2], int cant)
 {
-
+    string Copia[cant*2];
+    int cont=0;
+    for(int i=0;i<cant;i++){
+        for(int j=0;j<2;j++){
+            Copia[cont]=L[i][j];
+            cont+=1;
+        }
+    }
     for (int i = 0; i < cant; i++)
     {
+        L[i][0]="";
+        L[i][1]="";
     }
+
+    for(int i=0;i<cant*2;i+=2){
+        int codigo = clave(Copia[i]);
+        int indice = codigo % cant;
+        while(true){
+            indice = indice % cant;
+            if(L[indice][0]==""){
+                L[indice][0]=Copia[i];
+                L[indice][1]=Copia[i+1];
+                break;
+            }
+            else{
+                indice+=1;
+            }
+        }
+
+    }
+
+    for(int i=0;i<cant*2;i++){
+        cout<<Copia[i]<<endl;
+    }
+    
 }
 
 void mostrar(string L[][2], int cant)
@@ -47,4 +78,6 @@ int main()
                      {"74520367", "Donald"}};
     int cant = sizeof(L) / sizeof(L[1]);
     mostrar(L, cant);
+    Hash(L,cant);
+    mostrar(L,cant);
 }
