@@ -49,10 +49,59 @@ void Hash(string L[][2], int cant)
 
     }
 
-    for(int i=0;i<cant*2;i++){
-        cout<<Copia[i]<<endl;
-    }
+
     
+}
+
+void menu(string L[][2],int cant){
+    cout<<"\nMenu\n";
+    cout<<"1. Consultar DNI\n2. Eliminar DNI\n3. Modificar DNI\n4. Salir\n";
+    int valor;
+    cin>>valor;
+    string dni;
+    int clave_dni;
+    int max;
+    int opc=1;
+    
+    if(valor == 4){
+        cout<<"Adios\n";
+    }
+
+    else{
+        cout<<"Ingrese su DNI: ";
+        switch (valor)
+        {
+        case 1:
+            cin>>ws;
+            getline(cin,dni);
+            cout<<dni<<endl;
+            clave_dni = clave(dni);
+            max = clave_dni;
+            clave_dni%=cant;
+            while(dni != L[clave_dni][0]){
+                clave_dni++;
+                clave_dni%=cant;
+                if(clave_dni==max)
+                {
+                    break;
+                    opc = -1;
+                }
+            }
+            if(opc == 1){
+                cout<<"La persona que tiene el dni "<<dni<<" es: "<<L[clave_dni][1]<<endl;
+            }
+            else{
+                cout<<"No se encontro el dni\n";
+            }
+            break;
+        
+    
+
+            default:
+                cout<<"Ingrese otro valor";
+                break;
+        }
+    }
 }
 
 void mostrar(string L[][2], int cant)
@@ -76,8 +125,10 @@ int main()
                      {"89756413", "Carolina"},
                      {"96445646", "Charlie"},
                      {"74520367", "Donald"}};
-    int cant = sizeof(L) / sizeof(L[1]);
+    int cant = sizeof(L) / sizeof(L[0]);
     mostrar(L, cant);
     Hash(L,cant);
+    cout<<"\n\n\n";
     mostrar(L,cant);
+    menu(L,cant);
 }
